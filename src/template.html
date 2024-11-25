@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todo list</title>
+</head>
+<body>
+    <header>
+        <h1 class="title">ToDo</h1>
+    </header>
+    <div class="content" id="content">
+        <div class="btn-wrapper">
+            <button class="btn">add task</button>
+            <button class="btn">add list</button>
+        </div>
+
+        <div class="task-form-wrapper">
+            <form class="task-form">
+                <div class="input-wrapper">
+                    <label for="title">Title:</label>
+                    <input type="text" id="title" name="title">
+                </div>
+
+                <div class="input-wrapper">
+                    <label for="descr">Description:</label>
+                    <input type="text" id="descr" name="descr">
+                </div>
+
+                <div class="input-wrapper">
+                    <label for="due_date">dueDate:</label>
+                    <input type="text" id="due_date" name="due_date">
+                </div>
+                
+                <div class="input-wrapper">
+                    <label for="priority">Priority:</label>
+                    <input type="number" id="priority" name="priority">
+                </div>
+                
+                <div class="input-wrapper">
+                    <label for="list">Choose list:</label>
+                    <input type="button" id="list" name="list">
+                </div>
+            </form>
+            <button class="btn btn-save">Save</button>
+        </div>
+    </div>
+</body>
+</html>

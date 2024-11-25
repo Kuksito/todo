@@ -1,0 +1,30 @@
+.task-form-wrapper{
+    display: grid;
+    width: 300px;
+    margin: 0 auto;
+}
+
+.task-form{
+    display: grid;
+    gap: 5px;
+}
+
+.input-wrapper{
+    display: flex;
+    width: 300px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input-wrapper:last-child{
+    justify-content: start;
+}
+
+.input-wrapper > input[type="button"]{
+    margin-left: 39px;
+    width: 30px;
+}
+
+.btn-save{
+    margin-top: 15px;
+}
