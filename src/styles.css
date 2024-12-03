@@ -50,20 +50,23 @@ body{
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     width: fit-content;
+    margin: 0 auto;
 }
 
 .list-wrapper{
-    display: grid;
+    display: flex;
     width: 111px;
     gap: 5px;
     border: 1px solid #7e838f;
     border-radius: 10px;
     padding: 8px;
+    align-items: flex-start;
 }
 
 .list-title{
     text-align: center;
     margin-bottom: 10px;
+    min-width: 111px;
 }
 
 .item-btns.item-btn-small{
@@ -116,6 +119,12 @@ body{
 
 .btn-check{
     transition: .3s ease-in-out;
+}
+
+svg{
+    width: 30px;
+    height: 30px;
+    fill: #a50000;
 }
 
 .form-dialog{
@@ -183,7 +192,46 @@ body{
     width: 30px;
 }
 
+.btn-form-list{
+    min-width: 38px;
+    /* width: fit-content; */
+    min-height: 25px;
+    padding: 4px;
+    background-color: #fff;
+    border: 1px solid;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.list-choose-wrapper{
+    position: absolute;
+    bottom: 93px;
+    right: 19px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    border: 1px solid;
+    box-shadow: 0px 1px 8px #333;
+    padding: 10px;
+}
+
+.list-choose-div{
+    cursor: pointer;
+    transition: .3s ease-in-out;
+}
+
+.list-choose-div:hover{
+    background-color: #3d424982;
+    border-radius: 3px;
+    color: #fff;
+}
+
 .btn-save{
     margin-top: 15px;
     font-size: 1rem;
+    background-color: #fff;
+}
+
+.save-svg{
+   position: relative;
+   top: 3px;
 }
