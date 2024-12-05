@@ -89,8 +89,11 @@ body{
     width: 480px;
     flex-direction: column;
     margin: 0 auto;
+    padding: 8px 15px;
     gap: 10px;
     cursor: pointer;
+    background-color: #8888ad40;
+    border-radius: 10px;
 }
 
 .item-info{

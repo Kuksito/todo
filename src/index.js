@@ -9,6 +9,14 @@ const formListBtn = document.querySelector('#list');
 const taskContainer = document.querySelector('#task-container');
 const listContainer = document.querySelector('#list-container');
 
+
+// const taskTitle = document.querySelector('#task-title');
+// const taskPriority = document.querySelector('#task-priority');
+// const taskDueDate = document.querySelector('#task-date');
+// const btnCheck = document.querySelector('#task-btn-check');
+// const btnDelete = document.querySelector('#task-delete-btn');
+// const taskDescr = document.querySelector('#task-description');
+
 const tasks = [];
 const lists = [];
 let newTask;
@@ -27,93 +35,156 @@ class Task{
     }
 };
 
+// function createTaskInfo(task){
+//     taskTitle.innerHTML = `${task.title}`;
+//     taskPriority.textContent = `${task.priority}`;
+//     taskDueDate.textContent = `due to: ${task.dueDate}`;
+//     taskDescr.textContent = `${task.description}`;
+//     // listInfo.textContent = `${task.list}`;
+//     btnDelete.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 26 26">
+// <path d="M 11.5 -0.03125 C 9.542969 -0.03125 7.96875 1.59375 7.96875 3.5625 L 7.96875 4 L 4 4 C 3.449219 4 3 4.449219 3 5 L 3 6 L 2 6 L 2 8 L 4 8 L 4 23 C 4 24.644531 5.355469 26 7 26 L 19 26 C 20.644531 26 22 24.644531 22 23 L 22 8 L 24 8 L 24 6 L 23 6 L 23 5 C 23 4.449219 22.550781 4 22 4 L 18.03125 4 L 18.03125 3.5625 C 18.03125 1.59375 16.457031 -0.03125 14.5 -0.03125 Z M 11.5 2.03125 L 14.5 2.03125 C 15.304688 2.03125 15.96875 2.6875 15.96875 3.5625 L 15.96875 4 L 10.03125 4 L 10.03125 3.5625 C 10.03125 2.6875 10.695313 2.03125 11.5 2.03125 Z M 6 8 L 11.125 8 C 11.25 8.011719 11.371094 8.03125 11.5 8.03125 L 14.5 8.03125 C 14.628906 8.03125 14.75 8.011719 14.875 8 L 20 8 L 20 23 C 20 23.5625 19.5625 24 19 24 L 7 24 C 6.4375 24 6 23.5625 6 23 Z M 8 10 L 8 22 L 10 22 L 10 10 Z M 12 10 L 12 22 L 14 22 L 14 10 Z M 16 10 L 16 22 L 18 22 L 18 10 Z"></path>
+// </svg>`;
+//     taskPriority.style.paddingRight = '5px';
+
+//     console.log(taskTitle)
+//     console.log(taskPriority)
+// }
+
 function createTaskInfo(task){
-    const item = document.createElement('div');
-    const itemInfo = document.createElement('div');
-    const itemTitleWrapper = document.createElement('div');
-    const itemTitle = document.createElement('h4');
-    const itemPriority = document.createElement('span');
-    const itemDueDate = document.createElement('p');
-    const itemBtnsContainer = document.createElement('div');
+    const taskWrapper = document.createElement('div');
+    const taskInfo = document.createElement('div');
+    const taskTitleWrapper = document.createElement('div');
+    const taskTitle = document.createElement('h4');
+    const taskPriority = document.createElement('span');
+    const taskDueDate = document.createElement('p');
+    const taskBtnsContainer = document.createElement('div');
     const btnCheck = document.createElement('button');
     const btnDelete = document.createElement('button');
-    const descr = document.createElement('p');
-    // const listInfo = document.createElement('p');
-    item.classList.add('item');
-    itemInfo.classList.add('item-info');
-    itemTitleWrapper.classList.add('title-wrapper');
-    itemTitle.classList.add('item-title');
-    itemPriority.classList.add('priority');
-    itemDueDate.classList.add('date');
-    itemBtnsContainer.classList.add('item-btns');
+    const taskDescr = document.createElement('p');
+
+    taskWrapper.classList.add('item');
+    taskInfo.classList.add('item-info');
+    taskTitleWrapper.classList.add('title-wrapper');
+    taskTitle.classList.add('item-title');
+    taskPriority.classList.add('priority');
+    taskDueDate.classList.add('date');
+    taskBtnsContainer.classList.add('item-btns');
     btnCheck.classList.add('btn', 'btn-check');
     btnDelete.classList.add('btn');
-    descr.classList.add('description');
-    itemTitle.textContent = ` ${task.title}`;
-    itemPriority.textContent = `${task.priority}`;
-    itemDueDate.textContent = `due to: ${task.dueDate}`;
-    descr.textContent = `${task.description}`;
+    taskDescr.classList.add('description');
+
+    taskTitle.textContent = `${task.title}`;
+    taskPriority.textContent = `${task.priority}`;
+    taskDueDate.textContent = `due to: ${task.dueDate}`;
+    taskDescr.textContent = `${task.description}`;
     // listInfo.textContent = `${task.list}`;
     btnDelete.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 26 26">
 <path d="M 11.5 -0.03125 C 9.542969 -0.03125 7.96875 1.59375 7.96875 3.5625 L 7.96875 4 L 4 4 C 3.449219 4 3 4.449219 3 5 L 3 6 L 2 6 L 2 8 L 4 8 L 4 23 C 4 24.644531 5.355469 26 7 26 L 19 26 C 20.644531 26 22 24.644531 22 23 L 22 8 L 24 8 L 24 6 L 23 6 L 23 5 C 23 4.449219 22.550781 4 22 4 L 18.03125 4 L 18.03125 3.5625 C 18.03125 1.59375 16.457031 -0.03125 14.5 -0.03125 Z M 11.5 2.03125 L 14.5 2.03125 C 15.304688 2.03125 15.96875 2.6875 15.96875 3.5625 L 15.96875 4 L 10.03125 4 L 10.03125 3.5625 C 10.03125 2.6875 10.695313 2.03125 11.5 2.03125 Z M 6 8 L 11.125 8 C 11.25 8.011719 11.371094 8.03125 11.5 8.03125 L 14.5 8.03125 C 14.628906 8.03125 14.75 8.011719 14.875 8 L 20 8 L 20 23 C 20 23.5625 19.5625 24 19 24 L 7 24 C 6.4375 24 6 23.5625 6 23 Z M 8 10 L 8 22 L 10 22 L 10 10 Z M 12 10 L 12 22 L 14 22 L 14 10 Z M 16 10 L 16 22 L 18 22 L 18 10 Z"></path>
 </svg>`;
-    itemPriority.style.paddingRight = '5px';
-    item.append(itemInfo, descr);
-    itemInfo.append(itemTitleWrapper, itemBtnsContainer);
-    itemTitleWrapper.append(itemTitle, itemDueDate);
-    itemTitle.prepend(itemPriority);
-    itemBtnsContainer.append(btnCheck,btnDelete);
-    taskContainer.append(item);
+    taskPriority.style.paddingRight = '5px';
+    taskDescr.style.display = 'none';
 
-    if(formListBtn.textContent != ''){
-        item.append(itemInfo, descr);
-        itemInfo.append(itemTitleWrapper, itemBtnsContainer);
-        itemTitleWrapper.append(itemTitle, itemDueDate);
-        itemTitle.prepend(itemPriority);
-        itemBtnsContainer.append(btnCheck,btnDelete);
-        taskContainer.append(item);
+    taskWrapper.append(taskInfo, taskDescr);
+    taskInfo.append(taskTitleWrapper, taskBtnsContainer);
+    taskTitleWrapper.append(taskTitle, taskDueDate);
+    taskTitle.prepend(taskPriority);
+    taskBtnsContainer.append(btnCheck, btnDelete);
+    taskContainer.append(taskWrapper);
+
+    generatePriorityColor(taskPriority);
+    generateCheckBtn(btnCheck, taskTitleWrapper);
+    openCloseDescription(taskTitleWrapper, taskDescr);
+
+    return{ taskPriority };
+}
+
+// let taskInfo = createTaskInfo();
+
+function generatePriorityColor(priority){
+    if(priority.textContent === '1'){
+        priority.style.color = 'brown';
     }
+    if(priority.textContent === '2'){
+        priority.style.color = '#ff8f00';
+    }
+    if(priority.textContent === '3'){
+        priority.style.color = '#08bd08';
+    }
+};
 
-    if(descr.textContent != ''){
-        descr.style.display = 'none';
-    };
+function generateCheckBtn(btnCheck, taskTitleWrapper){
+    btnCheck.addEventListener('click', () => {
+        if(btnCheck.textContent != ''){
+            btnCheck.textContent = '';
+            taskTitleWrapper.style.textDecorationLine = 'blink';
+        } else {
+            btnCheck.textContent = '✔';
+            btnCheck.style.color = 'blue';
+            btnCheck.style.fontSize = '2rem';
+            taskTitleWrapper.style.textDecorationLine = 'line-through';
+        }
+    });
+};
 
-    itemTitleWrapper.addEventListener('click', () => {
+
+function openCloseDescription(taskTitleWrapper, descr){
+    taskTitleWrapper.addEventListener('click', () => {
         if(descr.style.display === 'block'){
             descr.style.display = 'none';
         } else {
             descr.style.display = 'block';
         }
     });
-
-    if(itemPriority.textContent === '1'){
-        itemPriority.style.color = '#08bd08';
-    }
-    if(itemPriority.textContent === '2'){
-        itemPriority.style.color = '#9b8900';
-    }
-    if(itemPriority.textContent === '3'){
-        itemPriority.style.color = 'orange';
-    }
-    if(itemPriority.textContent === '4'){
-        itemPriority.style.color = 'brown';
-    }
-    if(itemPriority.textContent === '5'){
-        itemPriority.style.color = 'red';
-    }
-
-    btnCheck.addEventListener('click', () => {
-        if(btnCheck.textContent != ''){
-            btnCheck.textContent = '';
-        } else {
-            btnCheck.textContent = '✔';
-            btnCheck.style.color = 'blue';
-            btnCheck.style.fontSize = '2rem';
-        }
-    });
-
-    return{item}
 };
+
+// function createTaskInfo(task){
+    
+//     // const listInfo = document.createElement('p');
+//     item.classList.add('item');
+//     itemInfo.classList.add('item-info');
+//     itemTitleWrapper.classList.add('title-wrapper');
+//     itemTitle.classList.add('item-title');
+//     itemPriority.classList.add('priority');
+//     itemDueDate.classList.add('date');
+//     itemBtnsContainer.classList.add('item-btns');
+//     btnCheck.classList.add('btn', 'btn-check');
+//     btnDelete.classList.add('btn');
+//     descr.classList.add('description');
+    
+//     item.append(itemInfo, descr);
+//     itemInfo.append(itemTitleWrapper, itemBtnsContainer);
+//     itemTitleWrapper.append(itemTitle, itemDueDate);
+//     itemTitle.prepend(itemPriority);
+//     itemBtnsContainer.append(btnCheck,btnDelete);
+//     taskContainer.append(item);
+
+//     if(formListBtn.textContent != ''){
+//         item.append(itemInfo, descr);
+//         itemInfo.append(itemTitleWrapper, itemBtnsContainer);
+//         itemTitleWrapper.append(itemTitle, itemDueDate);
+//         itemTitle.prepend(itemPriority);
+//         itemBtnsContainer.append(btnCheck,btnDelete);
+//         taskContainer.append(item);
+//     }
+
+//     return{item, descr, itemPriority, btnCheck}
+// };
+
+// function openCloseDescription(descr){
+//     descr.addEventListener('click', () => {
+//         let taskDesk;
+//         for(let i = 0; i < tasks.length; i++){
+//             taskDesk = createTaskInfo(tasks[i]);
+//         }
+//         // PROBLEM!!! need to pass an argument but i don't have it??
+//         // NOW IT OPENS THE DESCR BUT DOESN'T CLOSE IT AND ADDS THE SAME DIVS AGAIN
+//         if(taskDesk.descr.style.display === 'block'){
+//             taskDesk.descr.style.display = 'none';
+//         } else {
+//             taskDesk.descr.style.display = 'block';
+//         }
+//     });
+// };
 
 function displayTask(){
     taskContainer.innerHTML = '';
@@ -130,7 +201,6 @@ function addTask(){
         dialog.close();
         form.reset();
         formListBtn.value = '';
-
         displayTask();
     });
 };
