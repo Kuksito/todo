@@ -104,10 +104,12 @@ body{
 
 .title-wrapper{
     display: flex;
+    align-items: center;
 }
 
 .item-title{
     width: 150px;
+    display: flex;
 }
 
 .item-btns{
